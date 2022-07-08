@@ -1,1 +1,1 @@
-# Lockal-Store
+# Local-Store
