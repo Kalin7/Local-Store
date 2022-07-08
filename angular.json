@@ -32,8 +32,7 @@
               "./node_modules/startbootstrap-small-business/dist/css/styles.css"
             ],
             "scripts": [
-              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "./node_modules/startbootstrap-small-business/dist/js/scripts.js"
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {
