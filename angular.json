@@ -28,11 +28,11 @@
             ],
             "styles": [
               "src/styles.css",
-              "./node_modules/bootrtrap/dist/css/bootrtrap.min.css",
+              "./node_modules/bootsrtrap/dist/css/bootsrtrap.min.css",
               "./node_modules/startbootstrap-small-business/dist/css/styles.css"
             ],
             "scripts": [
-              "./node_modules/bootrtrap/dist/js/bootrtrap.bundle.min.js",
+              "./node_modules/bootsrtrap/dist/js/bootsrtrap.bundle.min.js",
               "./node_modules/startbootstrap-small-business/dist/js/scripts.js"
             ]
           },
