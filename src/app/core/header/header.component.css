@@ -1,0 +1,35 @@
+.navbar-brand {
+    display: flex;
+    gap: 20px;
+    font-size: 24px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgba(255, 255, 255, 0.55);
+}
+.logo {
+    display: flex;
+    background-color: #ff8000;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.rotate {
+    transform: rotate(20deg);
+    background-color: #0d6efd;
+}
+
+.user-auth {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: var(--bs-body-font-size);
+    color: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .brand-text {
+        display: none;
+    }
+    .user-auth {
+        display: none;
+    }
+}
