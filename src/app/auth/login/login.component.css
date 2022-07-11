@@ -12,6 +12,7 @@
     border-radius: var(--bs-radius);
     color: var(--bs-white);
     text-align: center;
+    font-size: 2rem;
 }
 
 .form-container {
@@ -63,4 +64,5 @@ button {
     border-radius: var(--bs-radius);
     color: var(--bs-white);
     text-align: center;
+    font-size: 2rem;
 }
