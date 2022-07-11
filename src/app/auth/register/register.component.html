@@ -1,37 +1,53 @@
 <div class="register-wrapper">
-    <h2 class="register-title">Get Started</h2>
+    <div class="title-wrapper">
+        <h2 class="register-title">Get Started</h2>
+    </div>
     <div class="form-container">
-        <form clss="form-items" action="">
+        <form clss="form-items" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <div class="form-item username">
                 <fa-icon [icon]="['fas', 'user']"></fa-icon>
-                <input type="text" placeholder="first name" />
+                <input type="text" placeholder="first name" formControlName="firstName"/>
+                <app-form-valid *ngIf="registerForm.get('firstName')!.valid"></app-form-valid>
+                <app-form-error *ngIf="registerForm.get('firstName')!.invalid"></app-form-error>
             </div>
             <div class="form-item username">
                 <fa-icon [icon]="['fas', 'user']"></fa-icon>
-                <input type="text" placeholder="last name" />
+                <input type="text" placeholder="last name" formControlName="lastName"/>
+                <app-form-valid *ngIf="registerForm.get('lastName')!.valid"></app-form-valid>
+                <app-form-error *ngIf="registerForm.get('lastName')!.invalid"></app-form-error>
             </div>
             <div class="form-item email">
                 <fa-icon [icon]="['fas', 'at']"></fa-icon>
-                <input type="email" placeholder="email" />
+                <input type="email" placeholder="email" formControlName="email"/>
+                <app-form-valid *ngIf="registerForm.get('email')!.valid"></app-form-valid>
+                <app-form-error *ngIf="registerForm.get('email')!.invalid"></app-form-error>
             </div>
             <div class="form-item phone">
                 <fa-icon [icon]="['fas', 'phone']"></fa-icon>
-                <input type="text" placeholder="phone" />
+                <input type="text" placeholder="phone" formControlName="phone"/>
+                <app-form-valid *ngIf="registerForm.get('phone')!.valid"></app-form-valid>
+                <app-form-error *ngIf="registerForm.get('phone')!.invalid"></app-form-error>
             </div>   
             <div class="form-item password">
                 <fa-icon [icon]="['fas', 'lock']"></fa-icon>
-                <input type="password" placeholder="password" />
+                <input type="password" placeholder="password" formControlName="password"/>
+                <app-form-valid *ngIf="registerForm.get('password')!.valid"></app-form-valid>
+                <app-form-error *ngIf="registerForm.get('password')!.invalid"></app-form-error>
             </div>
             <div class="form-item password">
                 <fa-icon [icon]="['fas', 'lock']"></fa-icon>
-                <input type="password" placeholder=" repeat password" />
+                <input type="password" placeholder=" repeat password" formControlName="rePass"/>
+                <app-form-valid *ngIf="registerForm.get('rePass')!.valid"></app-form-valid>
+                <app-form-error *ngIf="registerForm.get('rePass')!.invalid"></app-form-error>
             </div>
             <div class="form-item checkbox">
-                <input type="checkbox" />
+                <input type="checkbox" formControlName="check"/>
                 <label>* I'm above 18 years old</label>
+                <app-form-valid *ngIf="registerForm.get('check')!.value"></app-form-valid>
+                <app-form-error *ngIf="!registerForm.get('check')!.value"></app-form-error>
             </div>
             <div class="form-item button">
-                <button type="submit">Register</button>
+                <button [disabled]="!registerForm.valid || !registerForm.get('check')!.value" type="submit">Register</button>
             </div>             
         </form>
     </div>

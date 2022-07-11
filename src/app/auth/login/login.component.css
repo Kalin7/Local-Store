@@ -1,28 +1,36 @@
 .login-wrapper {
-    width: clamp(210px, 100%, 100%);
+    width: clamp(225px, 100%, 100%);
     margin: 100px auto;
     padding: clamp(0px, 4vw, 100px);
 }
 
-.login-wrapper h2 {
-    width: 200px;
+.title-wrapper {
+    width: min(30vw, 150px);
+    height: min(30vw, 150px);;
     margin: 0 auto;
-    padding: 0px 0px 5px 0px;
+    transform: rotate(45deg);
     background-color: var(--bs-primary);
     border-radius: var(--bs-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-wrapper h2 {
+    transform: rotate(-45deg);
     color: var(--bs-white);
     text-align: center;
-    font-size: 2rem;
+    font-size: clamp(1rem, 6vw, 1.5rem);
 }
 
 .form-container {
-    width: clamp(210px, 100%, 100%);
+    width: clamp(225px, 100%, 100%);
     padding: clamp(0px, 4vw, 100px);
     margin: 0 auto;
 }
 
 form {
-    width: clamp(200px, 100%, 100%);
+    width: clamp(225px, 100%, 100%);
     padding: 20px 20px;
     margin: 0 auto;
     display: flex;
@@ -33,8 +41,8 @@ form {
 }
 
 .form-item {
-    width: clamp(200px, 100%, 50%);
-    padding: 5px 0px;
+    width: clamp(225px, 100%, 50%);
+    padding: 5px 5px;
 }
 
 .email,
@@ -54,8 +62,9 @@ input[type="password"] {
     border: none;
     border-radius: var(--bs-radius);
 }
+
 button {
-    width: 200px;
+    width: min(30vw, 150px);
     display: block;
     margin: 0px auto;
     padding: 0px 0px 5px 0px;
@@ -64,5 +73,5 @@ button {
     border-radius: var(--bs-radius);
     color: var(--bs-white);
     text-align: center;
-    font-size: 2rem;
+    font-size: clamp(1rem, 6vw, 1.5rem);
 }
