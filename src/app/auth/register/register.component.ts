@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { faAt, faLock, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faAt, faLock, faPhone, faUser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +15,8 @@ export class RegisterComponent implements OnInit {
     library.addIcons(
       faAt,
       faLock,
-      faPhone
+      faPhone,
+      faUser
     )
   }
 

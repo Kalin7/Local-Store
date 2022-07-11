@@ -36,6 +36,7 @@ form {
     padding: 5px 0px;
 }
 
+.username,
 .email,
 .password,
 .phone {
