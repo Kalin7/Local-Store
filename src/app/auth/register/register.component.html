@@ -1,1 +1,30 @@
-<p>register works!</p>
+<div class="register-wrapper">
+    <h2 class="register-title">Register</h2>
+    <div class="form-container">
+        <form clss="form-items" action="">
+            <div class="form-item email">
+                <fa-icon [icon]="['fas', 'at']"></fa-icon>
+                <input type="email" placeholder="email" />
+            </div>
+            <div class="form-item phone">
+                <fa-icon [icon]="['fas', 'phone']"></fa-icon>
+                <input type="text" placeholder="phone" />
+            </div>   
+            <div class="form-item password">
+                <fa-icon [icon]="['fas', 'lock']"></fa-icon>
+                <input type="password" placeholder="password" />
+            </div>
+            <div class="form-item password">
+                <fa-icon [icon]="['fas', 'lock']"></fa-icon>
+                <input type="password" placeholder=" repeat password" />
+            </div>
+            <div class="form-item checkbox">
+                <input type="checkbox" />
+                <label>* I'm above 18 years old</label>
+            </div>
+            <div class="form-item button">
+                <button type="submit">Register</button>
+            </div>             
+        </form>
+    </div>
+</div>
