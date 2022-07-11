@@ -1,0 +1,66 @@
+.login-wrapper {
+    width: clamp(210px, 100%, 100%);
+    margin: 100px auto;
+    padding: clamp(0px, 4vw, 100px);
+}
+
+.login-wrapper h2 {
+    width: 200px;
+    margin: 0 auto;
+    padding: 0px 0px 5px 0px;
+    background-color: var(--bs-primary);
+    border-radius: var(--bs-radius);
+    color: var(--bs-white);
+    text-align: center;
+}
+
+.form-container {
+    width: clamp(210px, 100%, 100%);
+    padding: clamp(0px, 4vw, 100px);
+    margin: 0 auto;
+}
+
+form {
+    width: clamp(200px, 100%, 100%);
+    padding: 20px 20px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.form-item {
+    width: clamp(200px, 100%, 50%);
+    padding: 5px 0px;
+}
+
+.email,
+.password {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #212529;
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    color: var(--bs-logo);
+    border-radius: var(--bs-radius);
+}
+
+input[type="email"],
+input[type="password"] {
+    width: clamp(180px, 100%, 50%);
+    border: none;
+    border-radius: var(--bs-radius);
+}
+button {
+    width: 200px;
+    display: block;
+    margin: 0px auto;
+    padding: 0px 0px 5px 0px;
+    background-color: var(--bs-primary);
+    border: none;
+    border-radius: var(--bs-radius);
+    color: var(--bs-white);
+    text-align: center;
+}

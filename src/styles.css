@@ -1,1 +1,6 @@
 @import "../node_modules/startbootstrap-small-business/dist/css/styles.css";
+
+:root {
+    --bs-logo: #ff8000;
+    --bs-radius: 5px;
+}
