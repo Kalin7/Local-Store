@@ -37,8 +37,9 @@
             <div class="form-item password">
                 <fa-icon [icon]="['fas', 'lock']"></fa-icon>
                 <input type="password" placeholder=" repeat password" formControlName="rePass"/>
-                <app-form-valid *ngIf="registerForm.get('rePass')!.valid"></app-form-valid>
-                <app-form-error *ngIf="registerForm.get('rePass')!.invalid"></app-form-error>
+                <app-form-valid *ngIf="registerForm.get('rePass')!.value == registerForm.get('password')!.value"></app-form-valid>
+                <app-form-error *ngIf="registerForm.get('rePass')!.value != registerForm.get('password')!.value">
+                </app-form-error>
             </div>
             <div class="form-item checkbox">
                 <input type="checkbox" formControlName="check"/>

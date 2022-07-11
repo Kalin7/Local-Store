@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ContentComponent } from './home/content/content.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -19,6 +20,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule,
+    HttpClientModule,
     FontAwesomeModule
   ],
   exports: [

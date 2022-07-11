@@ -2,6 +2,9 @@ import { Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faAt, faLock, faPhone, faUser,  } from '@fortawesome/free-solid-svg-icons';
+import { IUser } from 'src/app/core/interface';
+import { AuthService } from 'src/app/core/service/auth.service';
+import { FormDataService } from 'src/app/core/service/form-data.service';
 
 @Component({
   selector: 'app-register',
@@ -17,11 +20,16 @@ export class RegisterComponent implements OnInit {
     phone: new FormControl('', Validators.required),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     rePass: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    check: new FormControl(false, [Validators.required])
+    check: new FormControl(false)
 
-  })
+  });
+
+  user!: IUser;
+
   constructor(
     library: FaIconLibrary,
+    private sAuth: AuthService,
+    private sForm: FormDataService
   ) { 
     library.addIcons(
       faAt,
@@ -35,7 +43,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.registerForm.value)
+    this.sAuth.registerUser(this.sForm.getUserData, this.registerForm.value);
   }
 }
 
