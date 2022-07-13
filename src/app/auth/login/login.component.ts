@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     check: new FormControl(false)
   });
 
-  user?: any;
+  token?: any;
   error?: string;
   isError: boolean = false;
 
@@ -43,11 +43,11 @@ export class LoginComponent implements OnInit {
               .subscribe(
                   { 
                     next: (res) => {
-                      this.user = res;
+                      this.token = res;
+                      console.log(this.token)
                     },
                     error: (err) => {
                       this.error = err.error.msg;
-                      console.log(this.error)
                     }
                   }
               );

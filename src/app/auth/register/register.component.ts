@@ -26,6 +26,7 @@ export class RegisterComponent implements OnInit {
   });
 
   user!: IUser;
+  error?: string;
   
   constructor(
     library: FaIconLibrary,
@@ -44,7 +45,19 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.sAuth.registerUser(this.sForm.getUserRegisterData, this.registerForm.value).subscribe();
+    this.sAuth.registerUser(this.sForm.getUserRegisterData, this.registerForm.value)
+              .subscribe({
+                next: () => {
+                  alert("Register successful")
+                },
+                error: (err) => {
+                  this.error = err.error.msg
+                }
+              });
+  }
+
+  hide(): void {
+    this.error = undefined;
   }
 
 }

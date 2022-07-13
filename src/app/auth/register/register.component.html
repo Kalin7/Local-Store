@@ -1,6 +1,10 @@
 <div class="register-wrapper">
     <div class="title-wrapper">
-        <h2 class="register-title">Get Started</h2>
+        <div class="error" *ngIf="error">
+            {{error}}
+            <button (click)="hide()">Close</button>
+        </div>
+        <h2 class="register-title" *ngIf="!error">Get Started</h2>
     </div>
     <div class="form-container">
         <form clss="form-items" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
