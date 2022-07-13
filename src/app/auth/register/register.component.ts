@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faAt, faLock, faPhone, faUser,  } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
@@ -31,7 +32,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     library: FaIconLibrary,
     private sAuth: AuthService,
-    private sForm: FormDataService
+    private sForm: FormDataService,
+    private router: Router
   ) { 
     library.addIcons(
       faAt,
@@ -48,7 +50,8 @@ export class RegisterComponent implements OnInit {
     this.sAuth.registerUser(this.sForm.getUserRegisterData, this.registerForm.value)
               .subscribe({
                 next: () => {
-                  alert("Register successful")
+                  alert("Register successful");
+                  this.router.navigate(['/auth/user/login']);
                 },
                 error: (err) => {
                   this.error = err.error.msg
