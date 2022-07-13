@@ -12,8 +12,11 @@ export class AuthService {
     private http: HttpClient,
   ) { }
 
+  loginUser(user: Function, data: any): Observable<any> {
+    return this.http.post<any>('http://localhost:3000/user/login', user(data));
+  }
+
   registerUser(user: Function, data: any): Observable<IUser> {
-    const d = user(data);
-    return this.http.post<any>('http://localhost:3000/user/register', d);
+    return this.http.post<any>('http://localhost:3000/user/register', user(data));
   }
 }

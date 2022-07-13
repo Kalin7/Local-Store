@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faAt, faLock, faPhone, faUser,  } from '@fortawesome/free-solid-svg-icons';
+import { Subscription } from 'rxjs';
 import { IUser } from 'src/app/core/interface';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { FormDataService } from 'src/app/core/service/form-data.service';
@@ -25,7 +26,7 @@ export class RegisterComponent implements OnInit {
   });
 
   user!: IUser;
-
+  
   constructor(
     library: FaIconLibrary,
     private sAuth: AuthService,
@@ -43,8 +44,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.sAuth.registerUser(this.sForm.getUserData, this.registerForm.value);
+    this.sAuth.registerUser(this.sForm.getUserRegisterData, this.registerForm.value).subscribe();
   }
+
 }
 
 

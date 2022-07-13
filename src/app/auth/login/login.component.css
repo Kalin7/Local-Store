@@ -16,7 +16,8 @@
     justify-content: center;
 }
 
-.title-wrapper h2 {
+.login-title,
+.error {
     transform: rotate(-45deg);
     color: var(--bs-white);
     text-align: center;
@@ -74,4 +75,8 @@ button {
     color: var(--bs-white);
     text-align: center;
     font-size: clamp(1rem, 6vw, 1.5rem);
+}
+
+.error {
+    background-color: var(--bs-danger);
 }

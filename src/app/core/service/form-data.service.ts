@@ -8,12 +8,19 @@ export class FormDataService {
 
   constructor() { }
 
-  getUserData(data: any) {
+  getUserRegisterData(data: any) {
     return {
       firstName: data.firstName,
       lastName: data.lastName,
       email: data.email,
       phone: data.phone,
+      password: data.password
+    }
+  }
+
+  getUserLoginData(data: any) {
+    return {
+      email: data.email,
       password: data.password
     }
   }

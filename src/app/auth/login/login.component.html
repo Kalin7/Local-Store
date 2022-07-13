@@ -1,5 +1,9 @@
 <div class="login-wrapper">
     <div class="title-wrapper">
+        <div class="error" *ngIf="error">
+            {{error}}
+            <button (click)="hide()">Close</button>
+        </div>
         <h2 class="login-title">Login Form</h2>
     </div>
     <div class="form-container">
@@ -26,5 +30,7 @@
         </form>
     </div>
 </div>
+
+
 
 
