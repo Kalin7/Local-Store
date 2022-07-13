@@ -8,11 +8,12 @@ import { CounterService } from './core/service/counter.service';
 })
 export class AppComponent {
   title = 'Project';
-
+  visitors?: {};
   constructor(
     private sVisitor: CounterService,
   ) {
     this.sVisitor.createVisitorCounter('email').subscribe();
+    this.sVisitor.getNumberOfVisitors().subscribe((res) => {this.visitors = res});
   }
 
 

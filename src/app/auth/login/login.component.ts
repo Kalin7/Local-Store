@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faAt, faLock } from '@fortawesome/free-solid-svg-icons';
-import { catchError, Observable, of, Subscription } from 'rxjs';
-import { IUser } from 'src/app/core/interface';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { FormDataService } from 'src/app/core/service/form-data.service';
+import { StorageService } from 'src/app/core/service/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +27,9 @@ export class LoginComponent implements OnInit {
   constructor(
     library: FaIconLibrary,
     private sAuth: AuthService,
-    private sForm: FormDataService
+    private sForm: FormDataService,
+    private sStorage: StorageService,
+    private router: Router
   ) { 
     library.addIcons(
       faAt,
@@ -44,7 +46,8 @@ export class LoginComponent implements OnInit {
                   { 
                     next: (res) => {
                       this.token = res;
-                      console.log(this.token)
+                      this.sStorage.setStorage(this.token);
+                      this.router.navigate(['/home'])
                     },
                     error: (err) => {
                       this.error = err.error.msg;

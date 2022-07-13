@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CounterService } from '../service/counter.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  @Input() ctr?: any;
   constructor() { }
 
   ngOnInit(): void {

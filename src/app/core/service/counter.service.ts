@@ -14,4 +14,8 @@ export class CounterService {
   createVisitorCounter(email: string): Observable<any>  {
     return this.http.post('http://localhost:3000/create/visitor', {email});
   }
+
+  getNumberOfVisitors(): Observable<number> {
+    return this.http.get<number>('http://localhost:3000/counter');
+  }
 }

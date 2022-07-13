@@ -6,7 +6,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ContentComponent } from './home/content/content.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
 
 
@@ -28,6 +29,13 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     FooterComponent,
     ContentComponent
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
   ]
 })
 export class CoreModule { }

@@ -8,6 +8,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormValidComponent } from './form-valid/form-valid.component';
 import { FormErrorComponent } from './form-error/form-error.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { FormErrorComponent } from './form-error/form-error.component';
     LoginComponent,
     RegisterComponent,
     FormValidComponent,
-    FormErrorComponent
+    FormErrorComponent,
+    LogoutComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { FormErrorComponent } from './form-error/form-error.component';
     LoginComponent,
     RegisterComponent,
     FormValidComponent,
-    FormErrorComponent
+    FormErrorComponent,
+    LogoutComponent
   ]
 })
 export class AuthModule { }

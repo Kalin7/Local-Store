@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+.counter {
+    color: var(--bs-white);
+}

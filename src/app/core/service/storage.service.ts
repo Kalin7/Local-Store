@@ -7,12 +7,16 @@ export class StorageService {
 
   constructor() { }
 
-  setStorage(user: {}) {
-    sessionStorage.setItem('user', JSON.stringify(user));
+  setStorage(token: {}) {
+    sessionStorage.setItem('token', JSON.stringify(token));
   }
 
   getStorage() {
-    const user = sessionStorage.getItem('user');
+    const user = sessionStorage.getItem('token');
     return JSON.parse(user!)
+  }
+
+  clearStorage() {
+    sessionStorage.removeItem('token');
   }
 }
