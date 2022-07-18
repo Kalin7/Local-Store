@@ -18,4 +18,8 @@ export class JwtService {
     const isExpired = this.helper.isTokenExpired(token);
     console.log(isExpired);
   }
+
+  isUserTokenExpired(token: string) {
+    return this.helper.isTokenExpired(token);
+  }
 }

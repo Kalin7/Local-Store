@@ -15,11 +15,12 @@ export class JwtInterceptor implements HttpInterceptor {
 
   constructor(
     private sStorage: StorageService,
+    private sJwt: JwtService
   ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = this.sStorage.getStorage();
-    if(token) {
+    if(token && !this.sJwt.isUserTokenExpired(token)) {
       const clone = request.clone({
         headers: request.headers.set('Autorization', 'Bearer ' + token)
       });
