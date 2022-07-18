@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { JwtModule } from "@auth0/angular-jwt";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { CoreModule } from './core/core.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    JwtModule,
     FontAwesomeModule,
     CoreModule,
     AuthModule,

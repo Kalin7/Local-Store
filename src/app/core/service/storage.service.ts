@@ -19,4 +19,5 @@ export class StorageService {
   clearStorage() {
     sessionStorage.removeItem('token');
   }
+
 }
