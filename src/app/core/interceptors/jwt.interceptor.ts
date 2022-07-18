@@ -7,11 +7,15 @@ import {
 } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { StorageService } from '../service/storage.service';
+import { AuthService } from '../service/auth.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
 
-  constructor(private sStorage: StorageService) {}
+  constructor(
+    private sStorage: StorageService,
+    private sAuth: AuthService,
+  ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = this.sStorage.getStorage();
@@ -20,11 +24,10 @@ export class JwtInterceptor implements HttpInterceptor {
       const clone = request.clone({
         headers: request.headers.set('Autorization', 'Bearer ' + token)
       });
-      console.log(clone)
+
       return next.handle(clone);
 
     } else {
-
       return next.handle(request);
     }
   }

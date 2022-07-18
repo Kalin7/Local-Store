@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './core/service/auth.service';
 import { CounterService } from './core/service/counter.service';
 
 @Component({
@@ -9,12 +10,15 @@ import { CounterService } from './core/service/counter.service';
 export class AppComponent {
   title = 'Project';
   visitors?: {};
+
   constructor(
     private sVisitor: CounterService,
+    private sAuth: AuthService
   ) {
     this.sVisitor.createVisitorCounter('email').subscribe();
     this.sVisitor.getNumberOfVisitors().subscribe((res) => {this.visitors = res});
   }
 
-
+  ngOnInit(): void {
+  }
 }

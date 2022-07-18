@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
 import { IUser } from '../interface';
 
 @Injectable({
@@ -8,8 +8,9 @@ import { IUser } from '../interface';
 })
 export class AuthService {
 
-  private _logedUser = new BehaviorSubject<boolean>(false);
-  isLogedin$ = this._logedUser.asObservable();
+  isUser: boolean = false;
+  private _isLogin: Subject<boolean> = new Subject();
+  islogedIn$ = this._isLogin.asObservable();
 
   constructor(
     private http: HttpClient,
@@ -22,4 +23,10 @@ export class AuthService {
   registerUser(user: Function, data: any): Observable<IUser> {
     return this.http.post<any>('http://localhost:3000/user/register', user(data));
   }
+
+  getIsUserLogedIn(current: boolean) {
+    this.isUser = current;
+    this._isLogin.next(current);
+  }
+
 }
