@@ -48,10 +48,12 @@ export class LoginComponent implements OnInit {
                       this.token = res;
                       this.sStorage.setStorage(this.token);
                       this.sAuth.getIsUserLogedIn(true);
+                      this.loginForm.reset();
                       this.router.navigate(['/home']);
                     },
                     error: (err) => {
                       this.error = err.error.msg;
+                      this.loginForm.reset();
                     }
                   }
               );
