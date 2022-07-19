@@ -12,11 +12,8 @@ export class JwtService {
     private sStorage: StorageService,
   ) { }
 
-  decodeUserToken(token: string) {
-    const d = this.helper.decodeToken(token);
-    console.log(d);
-    const isExpired = this.helper.isTokenExpired(token);
-    console.log(isExpired);
+  decodeUserToken(token: string): {id: string} {
+    return this.helper.decodeToken(token);
   }
 
   isUserTokenExpired(token: string) {

@@ -24,6 +24,10 @@ export class AuthService {
     return this.http.post<any>('http://localhost:3000/user/register', user(data));
   }
 
+  logoutUser(data: {token: string, id: string}): Observable<any> {
+    return this.http.post<any>('http://localhost:3000/user/logout', data);
+  }
+
   getIsUserLogedIn(current: boolean) {
     this.isUser = current;
     this._isLogin.next(current);
