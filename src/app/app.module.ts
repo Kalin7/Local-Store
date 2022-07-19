@@ -19,7 +19,7 @@ import { CoreModule } from './core/core.module';
     JwtModule,
     FontAwesomeModule,
     CoreModule,
-    AuthModule,
+    AuthModule
   ],
   providers: [
   ],

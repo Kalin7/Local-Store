@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faArrowRightFromBracket, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../service/auth.service';
@@ -11,7 +10,8 @@ import { AuthService } from '../service/auth.service';
 })
 export class HeaderComponent implements OnInit{
 
-  isUser: boolean = false;
+  @Input() isUser?: boolean;
+  
   constructor(
     library: FaIconLibrary,
     private sAuth: AuthService,
@@ -20,11 +20,15 @@ export class HeaderComponent implements OnInit{
     library.addIcons(
       faArrowRightToBracket,
       faArrowRightFromBracket, 
-    ) 
+    );
   }
 
-  ngOnInit(): void {
-    this.sAuth.islogedIn$.subscribe((res) => this.isUser = res);
+  ngOnInit(): void { 
+    if (!this.isUser) {
+      this.sAuth.islogedIn$.subscribe((res) => {
+        this.isUser = res;
+      });
+    }
   }
 
 }

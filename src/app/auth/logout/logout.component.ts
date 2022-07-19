@@ -22,7 +22,6 @@ export class LogoutComponent implements OnInit {
     const token = this.sStorage.getStorage()
     const decodedToken = this.sJwt.decodeUserToken(token);
     this.logout(token, decodedToken.id);
-    this.sStorage.clearStorage();
     this.sAuth.getIsUserLogedIn(false);
     this.router.navigate(['/']);
   }
