@@ -17,7 +17,8 @@
 }
 
 .register-title,
-.error {
+.error,
+.success {
     transform: rotate(-45deg);
     color: var(--bs-white);
     text-align: center;
@@ -83,4 +84,10 @@ button {
 
 .error {
     background-color: var(--bs-danger);
+}
+.success {
+    width: 250px;
+    height: 150px;
+    word-wrap: wrap;
+    background-color: var(--bs-logo);
 }

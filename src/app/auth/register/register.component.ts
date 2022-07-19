@@ -27,6 +27,7 @@ export class RegisterComponent implements OnInit {
   });
 
   user!: IUser;
+  successfulMsg?: string = '';
   error?: string;
   
   constructor(
@@ -50,11 +51,16 @@ export class RegisterComponent implements OnInit {
     this.sAuth.registerUser(this.sForm.getUserRegisterData, this.registerForm.value)
               .subscribe({
                 next: () => {
-                  alert("Register successful");
-                  this.router.navigate(['/auth/user/login']);
+                  this.successfulMsg = "Register successful...Redirecting to Login";
+                  this.registerForm.reset();
+                  setTimeout(() => {
+                    this.router.navigate(['/auth/user/login']);
+                  }, 3000);
+                  
                 },
                 error: (err) => {
                   this.error = err.error.msg
+                  this.registerForm.reset();
                 }
               });
   }
