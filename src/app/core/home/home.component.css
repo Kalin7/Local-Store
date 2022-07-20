@@ -1,0 +1,14 @@
+.font-weight-light .rotate,
+.card-body .rotate {
+    display: inline-block;
+    transform: rotate(20deg);
+    background-color: #0d6efd;   
+}
+
+.diagonals{
+    background-image: repeating-linear-gradient(-45deg, 
+    rgba(31, 183, 239, 0.392) 10px,
+    rgba(16, 187, 193, 0.831) 10px,
+    transparent 12px,
+    transparent 20px);
+}
