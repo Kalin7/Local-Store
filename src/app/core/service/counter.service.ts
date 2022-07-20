@@ -11,8 +11,8 @@ export class CounterService {
     private http: HttpClient,
   ) { }
 
-  createVisitorCounter(email: string): Observable<any>  {
-    return this.http.post('http://localhost:3000/create/visitor', {email});
+  createVisitorCounter(id: string): Observable<any>  {
+    return this.http.post('http://localhost:3000/create/visitor', {id});
   }
 
   getNumberOfVisitors(): Observable<number> {

@@ -10,7 +10,6 @@ export class HomeComponent implements OnInit {
 
 
   constructor(
-    private sAuth: AuthService,
   ) { }
 
   ngOnInit(): void {

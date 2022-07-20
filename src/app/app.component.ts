@@ -13,11 +13,11 @@ import { StorageService } from './core/service/storage.service';
 export class AppComponent {
   title = 'Project';
   visitors$?: Observable<{}>;
-  token?: string;
-  isUser?: boolean;
   check$?: Observable<boolean>;
-  visitorId?: string = 'none';
-
+  token?: string;
+  visitorId?: string;
+  isUser?: boolean;
+  
   constructor(
     private sVisitor: CounterService,
     private sStorage: StorageService,
@@ -30,16 +30,15 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    this.sVisitor.createVisitorCounter(this.visitorId!).subscribe();
   }
 
   getState() {
     if (this.token && !this.sJwt.isUserTokenExpired(this.token)) {
-      const id = this.sJwt.decodeUserToken(this.token).id;
-      this.check$ = this.sAuth.isTokenBlacklisted(this.token, id);
+      this.visitorId = this.sJwt.decodeUserToken(this.token).id;
+      this.check$ = this.sAuth.isTokenBlacklisted(this.token, this.visitorId);
     }else {
       this.isUser = false;
     }
-    
+    this.sVisitor.createVisitorCounter(this.visitorId!).subscribe();
   }
 }
