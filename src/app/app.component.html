@@ -1,5 +1,5 @@
 <app-header [isUser]="isUser ? isUser :(check$ | async)!"></app-header>
 <router-outlet></router-outlet>
-<app-footer [ctr]="visitors"></app-footer>  
+<app-footer [ctr]="(visitors$ | async)"></app-footer>  
 
 

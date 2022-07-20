@@ -12,7 +12,7 @@ import { StorageService } from './core/service/storage.service';
 })
 export class AppComponent {
   title = 'Project';
-  visitors?: {};
+  visitors$?: Observable<{}>;
   token?: string;
   isUser?: boolean;
   check$?: Observable<boolean>;
@@ -24,7 +24,7 @@ export class AppComponent {
     private sAuth: AuthService,
     private sJwt: JwtService,
   ) {
-    this.sVisitor.getNumberOfVisitors().subscribe((res) => {this.visitors = res});
+    this.visitors$ = this.sVisitor.getNumberOfVisitors();
     this.token = this.sStorage.getStorage();
     this.getState();
   }
