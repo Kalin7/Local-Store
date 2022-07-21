@@ -43,9 +43,15 @@ export class AuthService {
                 }));
   }
 
+  userSendEmail(user: any) : Observable<any> {
+    return this.http.post<any>('http://localhost:3000/user/send-email', user);
+  }
+
   getIsUserLogedIn(current: boolean) {
     this.isUser = current;
     this._isLogin.next(current);
   }
+
+ 
 
 }

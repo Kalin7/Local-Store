@@ -51,13 +51,20 @@ export class RegisterComponent implements OnInit {
     this.sAuth.registerUser(this.sForm.getUserRegisterData, this.registerForm.value)
               .subscribe({
                 next: () => {
-                  this.successfulMsg = "Register successful...Redirecting to Login";
+                  this.successfulMsg = "Register successful...Email is sending to user";
                   this.registerForm.reset();
-                  setTimeout(() => {
-                    this.router.navigate(['/auth/user/login']);
-                  }, 3000);
+                  this.sAuth.userSendEmail(this.registerForm.value).subscribe({
+                    next: () => {
+                      this.registerForm.reset();
+                    },
+                    error: (err) => {
+                      this.error = err.error.msg;
+                    }
+                  });
                   
+                  this.router.navigate(['/home']);
                 },
+
                 error: (err) => {
                   this.error = err.error.msg
                   this.registerForm.reset();
